@@ -11,14 +11,33 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
 
+
+    
     WA.room.onEnterLayer('clockZone').subscribe(() => {
-        const today = new Date();
-        const time = today.getHours() + ":" + today.getMinutes();
-        currentPopup = WA.ui.openPopup("clockPopup","It's " + time,[]);
+        
+        currentPopup = WA.ui.openPopup("clockPopup","Hello This is Julia's test",[{
+            label: "Wikipedia",
+            className: "primary",
+            callback: (popup) => {
+                // Close the popup when the "Close" button is pressed.
+                const myWebsite = WA.ui.website.open({
+                    url: "https://wikipedia.org",
+                    position: {
+                        vertical: "middle",
+                        horizontal: "middle",
+                    },
+                    size: {
+                        height: "50vh",
+                        width: "50vw",
+                    },
+                });
+                
+            }
+        }]);
     })
 
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
-
+    
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
