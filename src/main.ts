@@ -18,9 +18,9 @@ WA.onInit().then(() => {
         currentPopup = WA.ui.openPopup("clockPopup","Hello This is Julia's test",[{
             label: "Wikipedia",
             className: "primary",
-            callback: (popup) => {
+            callback: () => {
                 // Close the popup when the "Close" button is pressed.
-                const myWebsite = WA.ui.website.open({
+                WA.ui.website.open({
                     url: "https://wikipedia.org",
                     position: {
                         vertical: "middle",
