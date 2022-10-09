@@ -12,7 +12,7 @@ WA.onInit().then(() => {
     console.log('Player tags: ',WA.player.tags)
 
 
-    
+    // JULIA TESTING
     WA.room.onEnterLayer('clockZone').subscribe(() => {
         
         currentPopup = WA.ui.openPopup("clockPopup","Hello This is Julia's test",[{
